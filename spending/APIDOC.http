@@ -1,0 +1,92 @@
+#create user
+###
+POST http://127.0.0.1:8000/v1/spending/register/
+Content-Type: application/json
+
+{
+    "username":"chukki",
+    "email":"chukki@gmail.com",
+    "password":"chukki"
+}
+
+
+#create token
+###
+POST http://127.0.0.1:8000/v1/spending/token/
+Content-Type: application/json
+
+{
+    "username":"chukki",
+   
+    "password":"chukki"
+}
+
+#getuser
+###
+GET http://127.0.0.1:8000/v1/spending/getme/
+Accept: application/json
+Authorization: Token 4415f17101902256471f8afe8f974d8c2ab2e720
+
+#listing
+###
+GET http://127.0.0.1:8000/v1/spending/listcreate/
+Accept: application/json
+Authorization: Token 4415f17101902256471f8afe8f974d8c2ab2e720
+
+#creating
+###
+POST http://127.0.0.1:8000/v1/spending/listcreate/
+Content-Type: application/json
+Authorization: Token 0fd92967b6312d4d63ffda057a6f797630b2a4b1
+
+{
+    "title":"course fee",
+    "amount":50000,
+    "category":"BILLS",
+    "payment_method":"upi"
+}
+
+#retrieve
+###
+GET http://127.0.0.1:8000/v1/spending/retrieveupdel/1/
+Accept: application/json
+Authorization: Token 4415f17101902256471f8afe8f974d8c2ab2e720
+
+#update
+###
+PUT  http://127.0.0.1:8000/v1/spending/retrieveupdel/1/
+Content-Type: application/json
+Authorization: Token 4415f17101902256471f8afe8f974d8c2ab2e720
+{
+  "id": 1,
+  "title": "petrol",
+  "amount": "5000.00",
+  "category": "TRAVEL",
+  "priority": "need",
+  "payment_method": "upi",
+  "created_at": "2026-10-09T06:19:04.890988Z",
+  "updated_at": "2026-10-09T06:19:04.891060Z",
+  "owner": 1
+}
+
+#delete
+###
+DELETE  http://127.0.0.1:8000/v1/spending/retrieveupdel/1/
+Accept: application/json
+Authorization: Token 4415f17101902256471f8afe8f974d8c2ab2e720
+
+#geting todays expense
+###
+GET  http://127.0.0.1:8000/v1/spending/summary/
+Accept: application/json
+Authorization: Token 0fd92967b6312d4d63ffda057a6f797630b2a4b1 
+
+
+#budget plan
+###
+GET http://127.0.0.1:8000/v1/spending/month/
+Accept: application/json
+Authorization: Token 0fd92967b6312d4d63ffda057a6f797630b2a4b1 
+
+
+
